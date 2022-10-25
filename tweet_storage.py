@@ -31,7 +31,7 @@ if os.path.exists(dst_path):
     if batch_name.startswith('batch') and not batch_name.endswith('.zip'):
       if len([n for n in os.listdir(os.path.join(dst_path, batch_name)) if n != '.DS_Store']) == batch_size:
         if not os.path.exists(os.path.join(dst_path, batch_name + '.zip')):
-          shutil.make_archive(batch_name, 'zip', os.path.join(dst_path, batch_name))
+          shutil.make_archive(os.path.join(dst_path, batch_name), 'zip', os.path.join(dst_path, batch_name))
           print('Finished zipping: ', batch_name)
         shutil.rmtree(os.path.join(dst_path, batch_name))
 else:
